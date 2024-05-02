@@ -1,0 +1,13 @@
+.header {
+    padding: 20px 25px;
+    background-color: darkred;
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: yellow;
+    text-shadow: 0 0 10px orange, 0 0 20px red;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
