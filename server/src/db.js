@@ -60,3 +60,8 @@ export async function login(user, passwordMd5) {
   }
   return false
 }
+
+export async function register(user, passwordMd5) {
+  const [result] = await pool.query('INSERT INTO users (user, password) VALUES (?, ?)', [user, passwordMd5])
+  return result
+}
