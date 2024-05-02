@@ -1,0 +1,10 @@
+.button {
+    cursor: url("src/assets/images/mini.png"), auto;
+    background-color: rgb(175, 56, 43);
+    color: rgba(213, 216, 220);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
