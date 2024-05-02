@@ -7,6 +7,7 @@ import {
   updatePost,
   deletePost,
   login,
+  register,
 } from './db.js'
 import {
   logError,
@@ -158,24 +159,47 @@ app.delete('/posts/:postId', async (req, res) => {
   }
 })
 
-app.post('/login', async (req, res) => {
+app.get('/login', async (req, res) => {
   // eslint-disable-next-line no-console
-  console.log('POST /login')
+  console.log('GET /login')
   const { user, password } = req.body
 
   if (!user || !password) {
     return res.status(400).json({ message: 'Missing required fields' })
   }
 
-  request('POST', '/login', req.body)
+  request('GET', '/login', req.body)
   try {
     const result = await login(user, password)
     if (result) {
-      response('POST', '/login', result)
-      return res.json({ userId: result })
+      response('GET', '/login', result)
+      return res.status(201).json(result)
     }
     return res.status(401).json({ message: 'Invalid user or password' })
   } catch (error) {
+    return res.status(500).json({ message: error.message })
+  }
+})
+
+app.post('/register', async (req, res) => {
+  // eslint-disable-next-line no-console
+  console.log('POST /register')
+  const { username, password } = req.body
+
+  // Verificar si todos los campos requeridos están presentes
+  if (!username || !password) {
+    return res.status(400).json({ message: 'Missing required fields' })
+  }
+
+  request('POST', '/register', req.body)
+
+  try {
+    const result = await register(username, password)
+    // eslint-disable-next-line no-console
+    response('POST', '/register', result)
+    return res.status(201).json(result)
+  } catch (error) {
+    // eslint-disable-next-line no-console
     return res.status(500).json({ message: error.message })
   }
 })
