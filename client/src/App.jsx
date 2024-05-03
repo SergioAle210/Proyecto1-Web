@@ -1,10 +1,16 @@
+import Header from '@components/Header'
+import Footer from '@components/Footer' 
+import Blog from './pages/Blog'
+
 import './App.css'
 
 function App() {
   
   return (
-    <div>
-      <h1>Hola mundo</h1>
+    <div className='app'>
+      <Header />
+      <Blog />
+      <Footer />
     </div>
   )
 }
