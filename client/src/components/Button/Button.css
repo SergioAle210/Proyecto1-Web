@@ -7,4 +7,11 @@
     border-radius: 20px;
     font-size: 1.5em;
     font-weight: bold;
+    margin: 10px;
+}
+
+.button:hover {
+    background-color: rgb(175, 56, 43);
+    color: rgba(213, 216, 220);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
