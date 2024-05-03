@@ -1,10 +1,6 @@
-[![Build Status](https://img.shields.io/travis/SergioAle210/Proyecto1-Web/master.svg?style=flat-square)](https://travis-ci.org/SergioAle210/Proyecto1-Web)
-[![Dependency Status](https://img.shields.io/david/SergioAle210/Proyecto1-Web_NAME.svg?style=flat-square)](https://david-dm.org/SergioAle210/Proyecto1-Web)
-[![Coverage Status](https://img.shields.io/coveralls/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME/master.svg?style=flat-square)](https://coveralls.io/github/SergioAle210/Proyecto1-Web?branch=master)
-
 # Nombre del Proyecto
 
-Descripción breve del proyecto: Este es un blog dinámico construido con Vite y React, diseñado para ofrecer una experiencia rápida y moderna en la creación y gestión de contenidos.
+Este es un blog de juegos de baloncesto dinámico construido con Vite y React, diseñado para ofrecer una experiencia rápida y moderna en la creación y gestión de contenidos.
 
 ## ¿Por qué estas tecnologías?
 
@@ -20,3 +16,34 @@ Sigue estos pasos para obtener una copia del proyecto y ejecutarlo en tu máquin
 
 Qué cosas necesitas instalar el software y cómo instalarlas:
 
+- Node.js
+- npm
+
+### Instalación
+
+Una serie de ejemplos paso a paso que te indican cómo ejecutar un entorno de desarrollo.
+
+Clona el repositorio:
+
+- git@github.com:SergioAle210/Proyecto1-Web.git
+- https://github.com/SergioAle210/Proyecto1-Web.git
+
+Instala las dependencias del proyecto:
+
+- cd Proyecto1-Web
+- npm install
+
+Ejecuta el servidor de desarrollo:
+
+npm run dev
+
+Luego, visita `http://localhost:3000` en tu navegador.
+
+Ejecuta el backend
+
+- cd Proyecto1-Web/server
+- npm start
+
+## Autores
+
+* **Sergio Orellana** - *Proyecto1-Web* - [SergioAle210](https://github.com/SergioAle210)
