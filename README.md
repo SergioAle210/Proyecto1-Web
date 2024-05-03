@@ -35,14 +35,14 @@ Instala las dependencias del proyecto:
 
 Ejecuta el servidor de desarrollo:
 
-npm run dev
-
-Luego, visita `http://localhost:3000` en tu navegador.
+- npm run dev
+- Luego, visita `http://127.0.0.1:3000` en tu navegador.
 
 Ejecuta el backend
 
 - cd Proyecto1-Web/server
 - npm start
+- Luego, visita `http://127.0.0.1:21122/posts` si quieres revisar que posts estan agregados.
 
 ## Autores
 
