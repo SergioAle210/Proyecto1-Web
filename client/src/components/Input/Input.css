@@ -15,7 +15,7 @@
   }
   
   .label {
-    font-size: 8px;
+    font-size: 20px;
     font-family: monospace;
   }
   
@@ -24,8 +24,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    gap: 5px;
+    gap: 10px;
     position: relative;
+    padding: 10px;
   }
   
   .eye {
