@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import './Blog.css'
 import Post from '@components/Post'
 import Loading from '@components/Loading'
@@ -24,9 +24,11 @@ const Blog = () => {
 
   return (
     <div className="blog">
-      {posts.map(post => (
-        <Post key={post.id} {...post} />
-      ))}
+      <Suspense fallback={<Loading />}>
+        {posts.map(post => (
+          <Post key={post.id} {...post} />
+        ))}
+      </Suspense>
     </div>
   )
 }
