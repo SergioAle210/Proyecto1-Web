@@ -159,20 +159,20 @@ app.delete('/posts/:postId', async (req, res) => {
   }
 })
 
-app.get('/login', async (req, res) => {
+app.post('/login', async (req, res) => {
   // eslint-disable-next-line no-console
-  console.log('GET /login')
+  console.log('POST /login')
   const { user, password } = req.body
 
   if (!user || !password) {
     return res.status(400).json({ message: 'Missing required fields' })
   }
 
-  request('GET', '/login', req.body)
+  request('POST', '/login', req.body)
   try {
     const result = await login(user, password)
     if (result) {
-      response('GET', '/login', result)
+      response('POST', '/login', result)
       return res.status(201).json(result)
     }
     return res.status(401).json({ message: 'Invalid user or password' })
