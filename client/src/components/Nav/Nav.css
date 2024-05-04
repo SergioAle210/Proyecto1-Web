@@ -1,0 +1,19 @@
+nav {
+    background-color: darkred;
+    padding: 10px;
+    text-align: center;
+  }
+  
+nav a {
+    margin-right: 10px;
+    color: yellow;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+  
