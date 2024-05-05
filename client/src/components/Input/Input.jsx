@@ -15,6 +15,7 @@ const Input = ({ label, placeholder, value, type, onChange }) => {
         className="input"
         value={value || ''}
         placeholder={placeholder}
+        maxLength={type === 'password' ? 16 : null}
       />
       {
         type === 'password' ? (
