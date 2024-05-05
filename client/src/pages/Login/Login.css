@@ -4,5 +4,18 @@ body {
   padding: 0;
   background-color: #573434;
   color: white;
+  height: 100%;
+  justify-content: center;
 }
 
+aside {
+  width: 300px; /* Tamaño fijo para el formulario */
+  padding: 20px;
+  margin: 100px auto; /* Centrar el formulario en la página */
+  background-color:darkred;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
