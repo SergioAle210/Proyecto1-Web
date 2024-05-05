@@ -6,6 +6,7 @@ nav {
   
 nav a {
     margin-right: 10px;
+    cursor: url("src/assets/images/mini.png"), auto;
     color: yellow;
     text-decoration: none;
     text-transform: uppercase;
