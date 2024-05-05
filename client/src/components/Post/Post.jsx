@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import './Post.css'
 
-const Post = ({ title, content, home_team, away_team, home_score, away_score, image_url }) => (
+const Post = ({ id, title, content, home_team, away_team, home_score, away_score, image_url }) => (
   <div className="post">
-    <h1>{title}</h1>
+    <h1 key={id}>{title}</h1>
     <p>{content}</p>
     <div className="scores">
       <span className="team-name">{home_team}</span>
@@ -17,6 +17,7 @@ const Post = ({ title, content, home_team, away_team, home_score, away_score, im
 )
 
 Post.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   home_team: PropTypes.string.isRequired,
