@@ -14,12 +14,12 @@
   
   /* Contenido del modal */
   .modal-content {
-    background-color: #fff; /* Fondo blanco para el contenido */
+    background-color: rgb(213, 118, 118); /* Fondo blanco para el contenido */
     padding: 20px; /* Espacio interior para no tocar los bordes */
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para el modal */
     width: 90%; /* Ajuste de ancho con un máximo de 500px */
-    max-width: 500px;
+    max-width: 600px;
   }
   
   /* Botón para cerrar el modal */
@@ -48,20 +48,15 @@
     border-radius: 4px; /* Bordes ligeramente redondeados */
   }
   
-  .modal form button {
-    background-color: #0056b3; /* Color de fondo para el botón */
-    color: white; /* Texto blanco */
-    border: none; /* Sin borde */
-    cursor: pointer; /* Indicador de clic */
-    margin-top: 15px; /* Más espacio en la parte superior del botón */
-  }
-  
-  .modal form button:hover {
-    background-color: #004494; /* Color al pasar el mouse */
-  }
-  
   label {
     font-weight: bold; /* Texto en negritas */
     color: #333; /* Color de texto oscuro */
   }
+
+  .form-buttons {
+    display: flex; /* Utiliza flexbox para alinear los botones */
+    justify-content: space-between; /* Separa los botones uniformemente */
+    margin-top: 20px; /* Margen superior para separar de otros campos del formulario */
+    padding: 0 10px; /* Padding lateral para mantener los botones dentro del flujo visual del formulario */
+}
   
