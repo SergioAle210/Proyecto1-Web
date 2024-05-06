@@ -12,7 +12,7 @@ import './Admin.css'
 
 const Admin = () => {
   const { fetchData } = useApi()
-  const { values, setValues, handleChange, handleSubmit } = useForm({
+  const { values, setValues, handleChange } = useForm({
     id: null,
     title: '',
     content: '',
@@ -26,16 +26,21 @@ const Admin = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isUpdate, setIsUpdate] = useState(false)
 
-  useEffect(() => {
-    fetchData('http://127.0.0.1:21122/posts').then(response => {
+  const fetchPost = async () => {
+    await fetchData('http://127.0.0.1:21122/posts').then(response => {
+      console.log("Received posts:", response.data)
       if (response.data && Array.isArray(response.data)) {
         setPosts(response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
       } else {
         console.error("Received data is not formatted as expected:", response);
         setPosts([]);
       }
-    });
-  }, [fetchData])
+    })
+  }
+
+  useEffect(() => {
+    fetchPost()
+  }, [])
 
   const handleDelete = postId => {
     fetchData(`http://127.0.0.1:21122/posts/${postId}`, { method: 'DELETE' })
@@ -45,8 +50,9 @@ const Admin = () => {
   
   const openModal = (post = null) => {
     if (post) {
-      console.log(post)
+      console.log("Editing post:", post)
       setValues({
+        id: post.id,
         title: post.title,
         content: post.content,
         homeTeam: post.home_team,
@@ -63,8 +69,8 @@ const Admin = () => {
         content: '',
         homeTeam: '',
         awayTeam: '',
-        homeScore: '',
-        awayScore: '',
+        homeScore: 0,
+        awayScore: 0,
         imageUrl: ''
       })
       setIsUpdate(false)
@@ -72,34 +78,40 @@ const Admin = () => {
     setIsModalOpen(true)
   }
 
-  const savePost = () => {
+  const savePost = async (formData) => {
+    const { title, content, homeTeam, awayTeam, homeScore, awayScore, imageUrl } = formData
     const method = values.id ? 'PUT' : 'POST'
     const url = values.id ? `http://127.0.0.1:21122/posts/${values.id}` : 'http://127.0.0.1:21122/posts'
-    fetchData(url, {
+    console.log("Saving post with method:", method, "and values:", formData)
+
+    await fetchData(url, {
       method: method,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(values)
-    }).then(updatedOrNewPost => {
-      if (method === 'POST') {
-        setPosts([...posts, updatedOrNewPost])
-      } else {
-        setPosts(posts.map(post => post.id === values.id ? updatedOrNewPost : post))
-      }
-      setIsModalOpen(false)
-    }).catch(err => console.error("Error saving post:", err)); // Añadir manejo de errores
-  }
+      body: JSON.stringify({
+        title,
+        content,
+        homeTeam: homeTeam,
+        awayTeam: awayTeam,
+        homeScore: parseInt(homeScore, 10), // Asegurándote de que es un número
+        awayScore: parseInt(awayScore, 10), // Asegurándote de que es un número
+        imageUrl
+      })
+    })
+
+    await fetchPost()
+}
 
   return (
     <div className='admin'>
       <Suspense fallback={<Loading />}>
         {posts.length > 0 ? posts.map(post => (
           <PostAdmin key={post.id} {...post} onDelete={() => handleDelete(post.id)} onUpdate={() => openModal(post)}/>
-        )) : <EmptyState />}    
+        )) : <EmptyState />}
         <Button text={"Create Post"} onClick={() => openModal()} />     
         <ModalForm
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
-          onSubmit={handleSubmit(savePost)}
+          onSubmit={(e) => savePost(e)}
           handleChange={handleChange}
           values={values}
           isUpdate={isUpdate}
