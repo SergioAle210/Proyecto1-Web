@@ -99,6 +99,8 @@ app.get('/posts/:postId', async (req, res) => {
 app.put('/posts/:postId', async (req, res) => {
   // eslint-disable-next-line no-console
   console.log('PUT /posts/:postId')
+  // eslint-disable-next-line no-console
+  console.table(req.body)
   const { postId } = req.params
   const {
     title,

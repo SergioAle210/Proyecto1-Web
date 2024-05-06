@@ -40,6 +40,8 @@ export async function updatePost(
   awayScore,
   imageUrl,
 ) {
+  // eslint-disable-next-line no-console
+  console.log('query', pool.format('UPDATE blog_posts SET title = ?, content = ?, home_team = ?, away_team = ?, home_score = ?, away_score = ?, image_url = ? WHERE id = ?', [title, content, homeTeam, awayTeam, homeScore, awayScore, imageUrl, postId]))
   const [result] = await pool.query(
     'UPDATE blog_posts SET title = ?, content = ?, home_team = ?, away_team = ?, home_score = ?, away_score = ?, image_url = ? WHERE id = ?',
     [title, content, homeTeam, awayTeam, homeScore, awayScore, imageUrl, postId],
