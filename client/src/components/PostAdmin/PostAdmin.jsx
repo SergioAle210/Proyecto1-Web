@@ -17,8 +17,8 @@ const PostAdmin = ({ id, title, content, home_team, away_team, home_score, away_
     </div>
     <img src={image_url} alt={title} className="post-image"/> 
     <div>
-        <Button text={'Actualizar'} onClick={() => onUpdate(id)} />
-        <Button text={'Eliminar'} onClick={() => onDelete(id)} />
+        <Button text={'Update'} onClick={() => onUpdate(id)} />
+        <Button text={'Delete'} onClick={() => onDelete(id)} />
     </div>
   </div>
 )
