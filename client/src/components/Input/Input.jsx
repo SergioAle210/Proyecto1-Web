@@ -16,6 +16,7 @@ const Input = ({ label, placeholder, value, type, onChange }) => {
         value={value || ''}
         placeholder={placeholder}
         maxLength={type === 'password' ? 16 : null}
+        required
       />
       {
         type === 'password' ? (
