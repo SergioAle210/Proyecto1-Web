@@ -60,3 +60,8 @@
     background-color: #004494; /* Color al pasar el mouse */
   }
   
+  label {
+    font-weight: bold; /* Texto en negritas */
+    color: #333; /* Color de texto oscuro */
+  }
+  

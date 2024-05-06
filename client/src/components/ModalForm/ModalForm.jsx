@@ -29,16 +29,18 @@ const ModalForm = ({ isOpen, onClose, onSubmit, post, isUpdate }) => {
     }
   }, [post])
 
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }))
+  const handleChange = (event) => {
+    const { name, value, type } = event.target;
+    const newValue = type === 'number' ? parseInt(value, 10) : value;
+    setFormData(prevValues => ({
+      ...prevValues,
+      [name]: newValue
+    }));
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log("Submitting form with data:", formData);
     onSubmit(formData)
     onClose() // Close the modal on submit
   }
