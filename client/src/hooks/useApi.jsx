@@ -10,7 +10,13 @@ const useApi = () => {
     setError(null)
     try {
       const response = await fetch(url, options)
-      const result = await response.json()
+      const contentType = response.headers.get("content-type")
+      let result = null
+      if (contentType && contentType.indexOf("application/json") !== -1) {
+        result = await response.json()
+      } else {
+        result = await response.text()  // Assume text if not JSON
+      }
       if (response.ok) {
         setData(result)
         return { data: result, error: null }
