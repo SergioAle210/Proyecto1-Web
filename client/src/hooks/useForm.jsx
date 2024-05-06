@@ -11,18 +11,10 @@ const useForm = (initialValues) => {
     }))
   }
 
-  const handleSubmit = (callback) => (event) => {
-    if (event && typeof event.preventDefault === 'function') {
-      event.preventDefault() // Asegúrate de que event tiene preventDefault
-    }
-    callback(values)
-  }
-
   return {
     values,
     setValues,
-    handleChange,
-    handleSubmit
+    handleChange
   }
 }
 
