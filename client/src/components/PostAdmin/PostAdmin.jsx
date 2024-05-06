@@ -4,9 +4,9 @@ import Button from '@components/Button'
 
 import './PostAdmin.css'
 
-const Post = ({ id, title, content, home_team, away_team, home_score, away_score, image_url, onDelete, onUpdate }) => (
+const PostAdmin = ({ id, title, content, home_team, away_team, home_score, away_score, image_url, onDelete, onUpdate }) => (
   <div className="post">
-    <h1 key={id}>{title}</h1>
+    <h1>{title}</h1>
     <p>{content}</p>
     <div className="scores">
       <span className="team-name">{home_team}</span>
@@ -23,17 +23,17 @@ const Post = ({ id, title, content, home_team, away_team, home_score, away_score
   </div>
 )
 
-Post.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  home_team: PropTypes.string.isRequired,
-  away_team: PropTypes.string.isRequired,
-  home_score: PropTypes.number.isRequired,
-  away_score: PropTypes.number.isRequired,
-  image_url: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  onUpdate: PropTypes.func.isRequired,
+PostAdmin.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  content: PropTypes.string,
+  home_team: PropTypes.string,
+  away_team: PropTypes.string,
+  home_score: PropTypes.number,
+  away_score: PropTypes.number,
+  image_url: PropTypes.string,
+  onDelete: PropTypes.func,
+  onUpdate: PropTypes.func,
 }
 
-export default Post
+export default PostAdmin
