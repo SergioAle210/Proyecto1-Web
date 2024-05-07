@@ -19,7 +19,6 @@ const ModalForm = ({ isOpen, onClose, onSubmit, post, isUpdate }) => {
 
   useEffect(() => {
     if (post) {
-      console.log('Actualizando formData con post:', post)
       setFormData({
         title: post.title || '',
         content: post.content || '',
@@ -43,7 +42,6 @@ const ModalForm = ({ isOpen, onClose, onSubmit, post, isUpdate }) => {
   }, [post])
 
   const handleChange = (name, value) => {
-    console.log('name', name, 'value', value)
     // Manejar directamente el cambio de los valores basado en el nombre y valor
     setFormData(prevValues => ({
       ...prevValues,
