@@ -32,9 +32,9 @@ Una serie de ejemplos paso a paso que te indican cómo ejecutar un entorno de de
 
 Clona el repositorio:
 
-- <ssh> git@github.com:SergioAle210/Proyecto1-Web.git
+- **SSH:** git@github.com:SergioAle210/Proyecto1-Web.git
   
-- <https> https://github.com/SergioAle210/Proyecto1-Web.git
+- **HTTPS:** https://github.com/SergioAle210/Proyecto1-Web.git
   
 
 Instala las dependencias del proyecto:
@@ -73,13 +73,7 @@ Agregar un usuario para el Login
 4. En el cuerpo tiene que seguir el siguiente formato en la opción raw:
   
 
-    {
-
-        "username": "<username>",
-
-        "password": "<password>"
-
-    }
+`json { "username": "<username>", "password": "<password>" }`
 
 **Nota**: Ten en cuenta que la constraseña tiene que estar en formato **MD5** para poder registrar un usuario.
 
