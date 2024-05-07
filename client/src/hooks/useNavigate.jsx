@@ -8,14 +8,25 @@ const NavigationProvider = ({ children }) => {
   const [page, setPage] = useState(path || '/')
 
   useEffect(() => {
-    if (path) {
-      setPage(path)
+    const handleHashChange = () => {
+      const newPath = window.location.hash.substring(1) || '/'
+      setPage(newPath)
+    }
+
+    window.addEventListener('hashchange', handleHashChange)
+
+    // Inicializar la página basada en el hash actual al cargar
+    handleHashChange()
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange)
     }
   }, [path])
 
   const navigate = (navigateTo) => {
     console.log('Navigating to', navigateTo)
     setPage(navigateTo)
+    window.location.hash = navigateTo
   }
 
   return (
