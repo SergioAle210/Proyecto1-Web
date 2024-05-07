@@ -29,3 +29,21 @@ aside {
   text-align: center;
   font-weight: bold;
 }
+
+@media (max-width: 500px) {
+  aside {
+    width: 90%; /* Se adapta al ancho de la pantalla */
+    height: auto; /* Altura automática para adaptarse al contenido */
+    padding: 20px;
+    margin: 50px auto; /* Menor margen para maximizar el espacio */
+  }
+
+  .login .title {
+    font-size: 20px; /* Tamaño de fuente reducido */
+  }
+
+  .login .error-message {
+    font-size: 14px; /* Tamaño de fuente más pequeño para mensajes de error */
+    padding: 8px 10px; /* Padding ajustado */
+  }
+}
