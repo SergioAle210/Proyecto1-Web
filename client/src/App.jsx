@@ -1,4 +1,5 @@
 import { NavigationProvider } from '@hooks/useNavigate'
+import { TokenProvider } from '@hooks/useToken'
 
 import Header from '@components/Header'
 import Footer from '@components/Footer'
@@ -8,11 +9,13 @@ import './App.css'
 
 function App() {
   return (
-    <NavigationProvider>
-      <Header />
-      <Pages />
-      <Footer />
-    </NavigationProvider>
+     <TokenProvider>
+      <NavigationProvider>
+        <Header />
+          <Pages />
+        <Footer />
+      </NavigationProvider>
+    </TokenProvider>
   )
 }
 
