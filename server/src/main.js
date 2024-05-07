@@ -8,13 +8,13 @@ import {
   deletePost,
   login,
   register
-} from './db.js'
+} from './db'
 import {
   logError,
   request,
   response
-} from './log.js'
-import { generateToken } from './jwt.js'
+} from './log'
+import { generateToken } from './jwt'
 
 const app = express()
 app.use(cors())

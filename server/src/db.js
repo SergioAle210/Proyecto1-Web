@@ -1,4 +1,4 @@
-import pool from './conn.js'
+import pool from './conn'
 
 // Obtener todos los posts
 export async function getAllPosts

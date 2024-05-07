@@ -3,6 +3,6 @@ module.exports = {
     name: 'blog sergio',
     script: 'npm',
     args: 'start',
-    merge_logs: true,
-  }],
+    merge_logs: true
+  }]
 }
