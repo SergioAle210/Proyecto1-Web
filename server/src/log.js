@@ -17,7 +17,7 @@ const nowInGuatemala = () => {
     minute: '2-digit',
     second: '2-digit',
     timeZone: guatemala,
-    hour12: false,
+    hour12: false
   }).format(now)
   return formattedDate
 }

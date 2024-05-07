@@ -7,7 +7,7 @@ const SECRET = 'tiburoncinhuhaha-jambalaya'
 const generateToken = (user) => {
   return jwt.sign(user, SECRET, {
     expiresIn: '1h',
-    algorithm: 'HS256',
+    algorithm: 'HS256'
   })
 }
 

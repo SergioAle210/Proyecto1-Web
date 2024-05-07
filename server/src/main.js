@@ -7,12 +7,12 @@ import {
   updatePost,
   deletePost,
   login,
-  register,
+  register
 } from './db.js'
 import {
   logError,
   request,
-  response,
+  response
 } from './log.js'
 import { generateToken } from './jwt.js'
 
@@ -47,17 +47,18 @@ app.post('/posts', async (req, res) => {
     awayTeam,
     homeScore,
     awayScore,
-    imageUrl,
+    imageUrl
   } = req.body
 
   // Verificar si todos los campos requeridos están presentes
-  if (!title
-    || !content
-    || !homeTeam
-    || !awayTeam
-    || homeScore === undefined
-    || awayScore === undefined
-    || !imageUrl) {
+  if (!title ||
+    !content ||
+    !homeTeam ||
+    !awayTeam ||
+    homeScore === undefined ||
+    awayScore === undefined ||
+    !imageUrl
+  ) {
     return res.status(400).json({ message: 'Missing required fields' })
   }
 
@@ -70,7 +71,7 @@ app.post('/posts', async (req, res) => {
       awayTeam,
       homeScore,
       awayScore,
-      imageUrl,
+      imageUrl
     )
     response('POST', '/posts', result)
     return res.status(201).json(result)
@@ -110,16 +111,17 @@ app.put('/posts/:postId', async (req, res) => {
     awayTeam,
     homeScore,
     awayScore,
-    imageUrl,
+    imageUrl
   } = req.body
 
-  if (!title
-    || !content
-    || !homeTeam
-    || !awayTeam
-    || homeScore === undefined
-    || awayScore === undefined
-    || !imageUrl) {
+  if (!title ||
+    !content ||
+    !homeTeam ||
+    !awayTeam ||
+    homeScore === undefined ||
+    awayScore === undefined ||
+    !imageUrl
+  ) {
     return res.status(400).json({ message: 'Missing required fields' })
   }
 
@@ -133,7 +135,7 @@ app.put('/posts/:postId', async (req, res) => {
       awayTeam,
       homeScore,
       awayScore,
-      imageUrl,
+      imageUrl
     )
 
     if (result.affectedRows === 0) {
@@ -178,7 +180,7 @@ app.post('/login', async (req, res) => {
     if (result) {
       const username = {
         user,
-        Email: 'sergioalejandro210@gmail.com',
+        Email: 'sergioalejandro210@gmail.com'
       }
       const token = generateToken(username)
       response('POST', '/login', result)
