@@ -9,6 +9,8 @@ import Blog from '@pages/Blog'
 import Admin from '@pages/Admin'
 import Login from '@pages/Login'
 
+import './index.css'
+
 const routes = {
   '/': {
     component: Blog,
@@ -31,7 +33,7 @@ const Pages = () => {
     let CurrentPage = () => <h1>404</h1>
 
     if (routes[page] && routes[page].requiresAuth && !token) {
-        return <div><h1>Unauthorized</h1><a href='/#/login' onClick={() => navigate('/login')}>Please login</a></div>
+        return <div className='Unauthorized'><h1 className='titleUnauthorized'>Unauthorized</h1><a className='loginUnauthorized' href='/#/login' onClick={() => navigate('/login')}>Please login</a></div>
     }
 
     CurrentPage = routes[page].component

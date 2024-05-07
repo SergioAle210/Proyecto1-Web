@@ -1,0 +1,28 @@
+.Unauthorized {
+    width: 100%;
+    align-content: center;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+}
+
+.titleUnauthorized {
+    text-align: center;
+    font-weight: bold; 
+    color: #ff6347;
+}
+
+.loginUnauthorized {
+    outline: none;
+    text-decoration: none;
+    padding: 20px 20px;
+    text-align: center;
+    color: #fde3a7;
+    font-size: 20px;
+}
+
+.loginUnauthorized:hover {
+    text-decoration: underline;
+  }
