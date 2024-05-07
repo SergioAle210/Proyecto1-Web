@@ -34,7 +34,21 @@ const Pages = () => {
   let CurrentPage = () => <h1>404</h1>
 
   if (routes[page] && routes[page].requiresAuth && !token) {
-    return <div className='Unauthorized'><h1 className='titleUnauthorized'>Unauthorized</h1><a className='loginUnauthorized' href='/#/login' onClick={() => navigate('/login')}>Please login</a></div>
+    return (
+      <div className='Unauthorized'>
+        <h1 className='titleUnauthorized'
+        >
+          Unauthorized
+        </h1>
+        <a
+          className='loginUnauthorized'
+          href='/#login'
+          onClick={() => navigate('/login')}
+        >
+          Please login
+        </a>
+      </div>
+    )
   }
 
   CurrentPage = routes[page].component
