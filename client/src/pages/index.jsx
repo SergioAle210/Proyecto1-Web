@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 import useToken from '@hooks/useToken'
 import useNavigate from '@hooks/useNavigate'
 
@@ -28,7 +30,7 @@ const Pages = () => {
 
     let CurrentPage = () => <h1>404</h1>
 
-    if (routes[page] && routes[page].requiresAuth && token) {
+    if (routes[page] && routes[page].requiresAuth && !token) {
         return <div><h1>Unauthorized</h1><a href='/#/login' onClick={() => navigate('/login')}>Please login</a></div>
     }
 
@@ -40,6 +42,11 @@ const Pages = () => {
           <CurrentPage />
         </div>
       )
+}
+
+Pages.propTypes = {
+  token: PropTypes.string,
+  setToken: PropTypes.func
 }
 
 export default Pages
