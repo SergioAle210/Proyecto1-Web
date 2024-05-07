@@ -14,6 +14,7 @@ import {
   request,
   response,
 } from './log.js'
+import { generateToken } from './jwt.js'
 
 const app = express()
 app.use(cors())
@@ -173,9 +174,15 @@ app.post('/login', async (req, res) => {
   request('POST', '/login', req.body)
   try {
     const result = await login(user, password)
+
     if (result) {
+      const username = {
+        user,
+        Email: 'sergioalejandro210@gmail.com',
+      }
+      const token = generateToken(username)
       response('POST', '/login', result)
-      return res.status(201).json(result)
+      return res.status(201).json({ success: true, access_token: token })
     }
     return res.status(401).json({ message: 'Invalid user or password' })
   } catch (error) {
