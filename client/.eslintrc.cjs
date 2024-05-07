@@ -29,8 +29,9 @@ module.exports = {
   ],
   rules: {
     semi: ['error', 'never'],
-    'import/extensions': ['error', 'ignorePackages', {
-      js: 'always'
+    'import/extensions': ['error', {
+      js: 'never',
+      jsx: 'never'
     }]
   }
 }
