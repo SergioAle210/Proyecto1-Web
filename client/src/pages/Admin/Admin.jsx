@@ -125,7 +125,7 @@ const Admin = () => {
           onClose={() => setIsModalOpen(false)}
           onSubmit={(e) => savePost(e)}
           handleChange={handleChange}
-          values={values}
+          post={values}
           isUpdate={isUpdate}
         />
       </Suspense>

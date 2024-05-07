@@ -10,23 +10,24 @@ const ModalForm = ({ isOpen, onClose, onSubmit, post, isUpdate }) => {
   const [formData, setFormData] = useState({
     title: post?.title || '',
     content: post?.content || '',
-    homeTeam: post?.home_team || '',
-    awayTeam: post?.away_team || '',
-    homeScore: post?.home_score || 0,
-    awayScore: post?.away_score || 0,
-    imageUrl: post?.image_url || ''
+    homeTeam: post?.homeTeam || '',
+    awayTeam: post?.awayTeam || '',
+    homeScore: post?.homeScore || 0,
+    awayScore: post?.awayScore || 0,
+    imageUrl: post?.imageUrl || ''
   })
 
   useEffect(() => {
     if (post) {
+      console.log('Actualizando formData con post:', post)
       setFormData({
         title: post.title || '',
         content: post.content || '',
-        homeTeam: post.home_team || '',
-        awayTeam: post.away_team || '',
-        homeScore: post.home_score || 0,
-        awayScore: post.away_score || 0,
-        imageUrl: post.image_url || ''
+        homeTeam: post.homeTeam || '',
+        awayTeam: post.awayTeam || '',
+        homeScore: post.homeScore || 0,
+        awayScore: post.awayScore || 0,
+        imageUrl: post.imageUrl || ''
       })
     } else {
       setFormData({
@@ -42,6 +43,7 @@ const ModalForm = ({ isOpen, onClose, onSubmit, post, isUpdate }) => {
   }, [post])
 
   const handleChange = (name, value) => {
+    console.log('name', name, 'value', value)
     // Manejar directamente el cambio de los valores basado en el nombre y valor
     setFormData(prevValues => ({
       ...prevValues,
@@ -84,11 +86,11 @@ ModalForm.propTypes = {
   post: PropTypes.shape({
     title: PropTypes.string,
     content: PropTypes.string,
-    home_team: PropTypes.string,
-    away_team: PropTypes.string,
-    home_score: PropTypes.number,
-    away_score: PropTypes.number,
-    image_url: PropTypes.string
+    homeTeam: PropTypes.string,
+    awayTeam: PropTypes.string,
+    homeScore: PropTypes.number,
+    awayScore: PropTypes.number,
+    imageUrl: PropTypes.string
   }),
   isUpdate: PropTypes.bool
 }
