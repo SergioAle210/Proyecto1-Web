@@ -1,43 +1,53 @@
 import useNavigate from '@hooks/useNavigate'
+import useToken from '@hooks/useToken'
+
+import React from 'react'
 
 import './Nav.css'
 
 const Nav = () => {
-  const { page, navigate, isLoggedIn } = useNavigate()
+  const { page, navigate } = useNavigate()
+  const { isLoggedIn, setToken } = useToken()
 
-  const handleClick = (e, newPath) => {
-    e.preventDefault();
-    navigate(newPath);
+  const handleClick = (event, newPath) => {
+    event.preventDefault()
+    navigate(newPath)
+  }
+
+  const handleLogout = (event) => {
+    event.preventDefault()
+    localStorage.removeItem('access_token')
+    setToken(null)
+    navigate('/login')
   }
 
   return (
     <nav>
       <ul className="nav-list">
-        {isLoggedIn ? (
-          <>
-            <li className={page === '/' ? 'active' : ''}>
-              <a href="/" onClick={(e) => handleClick(e, '/')}>Home</a>
-            </li>
-            <li className={page === '/admin' ? 'active' : ''}>
-              <a href="/admin" onClick={(e) => handleClick(e, '/admin')}>Admin</a>
-            </li>
-            <li>
-              <a href="/logout" onClick={(e) => {
-                localStorage.removeItem('access_token'); // Ensure to clean the token
-                handleClick(e, '/');
-              }}>Logout</a>
-            </li>
-          </>
-        ) : (
-          <>
-            <li className={page === '/' ? 'active' : ''}>
-              <a href="/" onClick={(e) => handleClick(e, '/')}>Home</a>
-            </li>
-            <li className={page === '/login' ? 'active' : ''}>
-              <a href="/login" onClick={(e) => handleClick(e, '/login')}>Login</a>
-            </li>
-          </>
-        )}
+        {isLoggedIn
+          ? (
+            <>
+              <li>
+                <a className={page === '/' ? 'active' : ''} href="/" onClick={(e) => handleClick(e, '/')}>Home</a>
+              </li>
+              <li>
+                <a className={page === '/admin' ? 'active' : ''} href="#/admin" onClick={(e) => handleClick(e, '/admin')}>Admin</a>
+              </li>
+              <li>
+                <a onClick={(e) => handleLogout(e)}>Logout</a>
+              </li>
+            </>
+            )
+          : (
+            <>
+              <li>
+                <a className={page === '/' ? 'active' : ''} href="/" onClick={(e) => handleClick(e, '/')}>Home</a>
+              </li>
+              <li>
+                <a className={page === '/login' ? 'active' : ''} href="#/login" onClick={(e) => handleClick(e, '/login')}>Login</a>
+              </li>
+            </>
+            )}
       </ul>
     </nav>
   )

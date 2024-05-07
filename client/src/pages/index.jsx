@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import React from 'react'
 
 import useToken from '@hooks/useToken'
 import useNavigate from '@hooks/useNavigate'
@@ -27,23 +28,23 @@ const routes = {
 }
 
 const Pages = () => {
-    const { token } = useToken() 
-    const { page, navigate } = useNavigate()
+  const { token } = useToken()
+  const { page, navigate } = useNavigate()
 
-    let CurrentPage = () => <h1>404</h1>
+  let CurrentPage = () => <h1>404</h1>
 
-    if (routes[page] && routes[page].requiresAuth && !token) {
-        return <div className='Unauthorized'><h1 className='titleUnauthorized'>Unauthorized</h1><a className='loginUnauthorized' href='/#/login' onClick={() => navigate('/login')}>Please login</a></div>
-    }
+  if (routes[page] && routes[page].requiresAuth && !token) {
+    return <div className='Unauthorized'><h1 className='titleUnauthorized'>Unauthorized</h1><a className='loginUnauthorized' href='/#/login' onClick={() => navigate('/login')}>Please login</a></div>
+  }
 
-    CurrentPage = routes[page].component
+  CurrentPage = routes[page].component
 
-    return (
-        <div>
-          <Nav />
-          <CurrentPage />
-        </div>
-      )
+  return (
+    <div>
+      <Nav />
+      <CurrentPage />
+    </div>
+  )
 }
 
 Pages.propTypes = {

@@ -1,11 +1,13 @@
+import React from 'react'
+
 import './Loading.css'
 
 const Loading = () => {
-    return (
+  return (
       <div className='parent'>
         <div className='spinner'></div>
       </div>
-    )
-  }
+  )
+}
 
 export default Loading

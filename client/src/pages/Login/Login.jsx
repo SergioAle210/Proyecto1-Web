@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { md5 } from 'js-md5'
 import useNavigate from '@hooks/useNavigate'
 import useToken from '@hooks/useToken'
@@ -11,13 +11,14 @@ import './Login.css'
 const Login = () => {
   const [user, setUsername] = useState()
   const [password, setPassword] = useState()
-  const { setToken } = useToken() 
+  const { setToken } = useToken()
   const { navigate } = useNavigate()
 
   const [errorMessage, setErrorMessage] = useState('')
 
   const setValue = (name, value) => {
-    switch(name) {
+    switch
+    (name) {
       case 'username':
         setUsername(value)
         break
@@ -38,8 +39,7 @@ const Login = () => {
     }
     const response = await fetch('http://127.0.0.1:21122/login', fetchOptions)
     const data = await response.json()
-    console.log("Response Data:", data)
-    
+
     if (response.ok) {
       setToken(data.access_token)
       console.log('Token set successfully, navigating to admin.')
@@ -54,11 +54,13 @@ const Login = () => {
     <aside className="login">
       <h1 className="title">Welcome!</h1>
       {
-        errorMessage !== '' ? (
+        errorMessage !== ''
+          ? (
           <div className='error-message' onClick={() => setErrorMessage('')}>
-            {errorMessage}
-          </div>
-        ) : null
+                {errorMessage}
+              </div>
+            )
+          : null
       }
       <Input label="Username" type="text" value={user} onChange={(value) => setValue('username', value)} />
       <Input label="Password" type="password" value={password} onChange={(value) => setValue('password', value)} />

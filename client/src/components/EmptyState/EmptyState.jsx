@@ -1,7 +1,8 @@
 import './EmptyState.css'
+import React from 'react'
 
 const EmptyState = () => {
-    return (
+  return (
       <div className='styles'>
         <h2>No hay posts para mostrar</h2>
         <p>
@@ -13,7 +14,7 @@ const EmptyState = () => {
           className='imageStyles'
         ></img>
       </div>
-    )
-  }
+  )
+}
 
 export default EmptyState

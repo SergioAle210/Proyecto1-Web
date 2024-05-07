@@ -1,4 +1,4 @@
-import { useState, useCallback  } from 'react'
+import { useState, useCallback } from 'react'
 
 const useApi = () => {
   const [data, setData] = useState(null)
@@ -10,12 +10,12 @@ const useApi = () => {
     setError(null)
     try {
       const response = await fetch(url, options)
-      const contentType = response.headers.get("content-type")
+      const contentType = response.headers.get('content-type')
       let result = null
-      if (contentType && contentType.indexOf("application/json") !== -1) {
+      if (contentType && contentType.indexOf('application/json') !== -1) {
         result = await response.json()
       } else {
-        result = await response.text()  // Assume text if not JSON
+        result = await response.text() // Assume text if not JSON
       }
       if (response.ok) {
         setData(result)
