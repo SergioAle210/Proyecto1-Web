@@ -30,7 +30,7 @@ module.exports = {
   rules: {
     semi: ['error', 'never'],
     'import/extensions': ['error', 'ignorePackages', {
-      js: 'never'
+      js: 'always'
     }]
   }
 }
