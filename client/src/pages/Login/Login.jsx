@@ -41,8 +41,8 @@ const Login = () => {
     console.log("Response Data:", data)
     
     if (response.ok) {
-      console.log('success! token is: ', data.access_token)
       setToken(data.access_token)
+      console.log('Token set successfully, navigating to admin.')
       navigate('/admin')
     } else {
       console.error('Login failed:', data)
