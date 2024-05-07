@@ -22,8 +22,6 @@ const TokenProvider = ({ children }) => {
   useEffect(() => {
     if (token) {
         localStorage.setItem('access_token', token)
-    } else {
-        localStorage.removeItem('access_token'); // Asegúrate de remover el token si no está presente
     }
   }, [token])
 
@@ -45,7 +43,7 @@ const useToken = () => {
 }
 
 TokenProvider.propTypes = {
-    children: PropTypes.node.isRequired
+    children: PropTypes.node
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
