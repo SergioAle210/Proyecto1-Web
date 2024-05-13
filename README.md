@@ -39,10 +39,13 @@ Clona el repositorio:
 
 Instala las dependencias del proyecto:
 
-1. cd Proyecto1-Web
+1. cd Proyecto1-Web/server
   
 2. npm install
-  
+
+3. cd Proyecto1-Web/client
+
+4. npm install  
 
 Ejecuta el backend
 
